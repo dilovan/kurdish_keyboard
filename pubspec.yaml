@@ -1,6 +1,6 @@
 name: kurdish_keyboard
 description: Kurdish keyboard layout.
-version: 0.0.1
+version: 0.0.3
 homepage: https://github.com/dilovan/kurdish_keyboard
 
 environment:
