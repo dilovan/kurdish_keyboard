@@ -1,7 +1,6 @@
 name: kurdish_keyboard
 description: Kurdish keyboard layout.
 version: 0.0.1
-author: dlovan.bashir.ali@gmail.com
 homepage: https://github.com/dilovan/kurdish_keyboard
 
 environment:
@@ -16,10 +15,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  kurdish_keyboard:
-    git:
-      # url: https://github.com/dilovan/kurdish_keyboard
-      path: packages/kurdish_keyboard
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
