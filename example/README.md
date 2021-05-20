@@ -3,7 +3,7 @@
 this keyboard is customized textfiled widget in flutter to input kurdish characters my be some of them is does'nt exists in default keyboards in android and ios platforms.
 
 <p align="center">
-    <img src="https://drive.google.com/drive/u/0/folders/1uleTb5ceSSqHFfUZh1xhQQeakDw8QCWn" alt="image" width=480" height="360"/>
+    <img src="https://photos.app.goo.gl/gnKsdmDaa5o76KN46" alt="image" width=480" height="360"/>
 </p>
 
 ## Getting Started
