@@ -1,10 +1,10 @@
 # Kurdish keyboard in flutter
 
 this keyboard is customized textfiled widget in flutter to input kurdish characters my be some of them is does'nt exists in default keyboards in android and ios platforms.
-
 <p align="center">
-    <img src="https://photos.app.goo.gl/gnKsdmDaa5o76KN46" alt="image" width=480" height="360"/>
+![IMG_2576](https://user-images.githubusercontent.com/3215461/119026441-d93bfc80-b9ad-11eb-92ae-8b3b0e77bd5b.PNG)
 </p>
+
 
 ## Getting Started
 
