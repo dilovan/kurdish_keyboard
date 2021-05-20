@@ -2,8 +2,11 @@ library kurdish_keyboard;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:kurdish_keyboard/KurdishKeys.dart';
+import 'package:kurdish_keyboard/src/KurdishKeys.dart';
 
+/// # [KurdishKeyboard]
+/// class is main package widget
+/// It has all TextField [Properties] in flutter
 class KurdishKeyboard extends StatefulWidget {
   KurdishKeyboard({
     Key key,
@@ -64,7 +67,10 @@ class KurdishKeyboard extends StatefulWidget {
 }
 
 class _KurdishKeyboardState extends State<KurdishKeyboard> {
+  ///You must declare a [TextEditingController] to comunicate
+  ///With [TextField] within KurdishKeyboard when you need to some purpose
   TextEditingController _controller = TextEditingController();
+
   @override
   void setState(fn) {
     super.setState(fn);
@@ -74,6 +80,8 @@ class _KurdishKeyboardState extends State<KurdishKeyboard> {
         : this.widget.text;
   }
 
+  ///[_OnClick] function it is the main idea for generating keyboard
+  ///In ModalBottomSheet dialoge
   void _onClick(BuildContext ctx) {
     showModalBottomSheet(
       enableDrag: false,
@@ -120,10 +128,14 @@ class _KurdishKeyboardState extends State<KurdishKeyboard> {
     );
   }
 
+  ///_doneText function get the textfield value from keyboard to main text
+  ///Of textfield that has been clicked from.
   void _doneText() {
     this.widget.textController.text = this._controller.text;
   }
 
+  ///_insertText function it is the bridge between
+  ///main textfield and keyboard textfield
   void _insertText(String myText) {
     final text = this._controller.text != null
         ? this._controller.text

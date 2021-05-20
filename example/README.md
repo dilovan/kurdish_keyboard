@@ -43,6 +43,15 @@ Declare Text Edit Controller
 ```
 implement as a widget in your app
 
+    Simple Example
+```dart
+
+KurdishKeyboard(
+    textController: tec,
+),
+
+```
+    Advanced Example
 ```dart
 
 KurdishKeyboard(

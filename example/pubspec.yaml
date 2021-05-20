@@ -1,5 +1,5 @@
 name: example
-description: A new Flutter project.
+description: kurdish keyboard layout for flutter apps.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   kurdish_keyboard:
-    path: ../
+    path: package/kurdish_keyboard #../kurdish_keyboard #packages/kurdish_keyboard
 
 
   # The following adds the Cupertino Icons font to your application.

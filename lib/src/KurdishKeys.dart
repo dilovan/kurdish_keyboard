@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kurdish_keyboard/TextKey.dart';
+import 'package:kurdish_keyboard/src/TextKey.dart';
+import 'shift.dart';
+import 'done.dart';
+import 'backspacekey.dart';
 
 class KurdishKeys extends StatefulWidget {
   KurdishKeys({
