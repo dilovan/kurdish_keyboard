@@ -4,7 +4,9 @@ this keyboard is customized textfiled widget in flutter to input kurdish charact
 <p align="center">
 [IMG_2576](https://user-images.githubusercontent.com/3215461/119026441-d93bfc80-b9ad-11eb-92ae-8b3b0e77bd5b.PNG)
 </p>
-
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/3215461/119026441-d93bfc80-b9ad-11eb-92ae-8b3b0e77bd5b.PNG" alt="image" width=480" height="360"/>
+</p>
 
 ## Getting Started
 
