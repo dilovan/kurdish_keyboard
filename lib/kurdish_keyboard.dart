@@ -10,7 +10,7 @@ import 'package:kurdish_keyboard/src/KurdishKeys.dart';
 class KurdishKeyboard extends StatefulWidget {
   KurdishKeyboard({
     Key key,
-    @required this.textController,
+    @required this.controller,
     this.onTextInput,
     this.onBackspace,
     this.onShifting,
@@ -37,7 +37,7 @@ class KurdishKeyboard extends StatefulWidget {
     this.keyTextColor,
   }) : super(key: key);
 
-  final TextEditingController textController;
+  final TextEditingController controller;
   final ValueSetter<String> onTextInput;
   final VoidCallback onBackspace;
   final ValueSetter<bool> onShifting;
@@ -69,15 +69,22 @@ class KurdishKeyboard extends StatefulWidget {
 class _KurdishKeyboardState extends State<KurdishKeyboard> {
   ///You must declare a [TextEditingController] to comunicate
   ///With [TextField] within KurdishKeyboard when you need to some purpose
-  TextEditingController _controller = TextEditingController();
+  // TextEditingController _controller = TextEditingController();
 
   @override
   void setState(fn) {
+    // this._controller.text = this.widget.text;
+    // this._controller = this.widget.textController;
+    // this._controller.text = this._controller.text != null
+    //     ? this._controller.text
+    //     : this.widget.text;
     super.setState(fn);
-    this._controller = this.widget.textController;
-    this._controller.text = this._controller.text != null
-        ? this._controller.text
-        : this.widget.text;
+  }
+
+  @override
+  void dispose() {
+    this.widget.controller?.dispose();
+    super.dispose();
   }
 
   ///[_OnClick] function it is the main idea for generating keyboard
@@ -92,7 +99,7 @@ class _KurdishKeyboardState extends State<KurdishKeyboard> {
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
-              controller: this._controller,
+              controller: this.widget.controller,
               style: this.widget.textStyle,
               textDirection: this.widget.textDirection != null
                   ? this.widget.textDirection
@@ -131,32 +138,32 @@ class _KurdishKeyboardState extends State<KurdishKeyboard> {
   ///_doneText function get the textfield value from keyboard to main text
   ///Of textfield that has been clicked from.
   void _doneText() {
-    this.widget.textController.text = this._controller.text;
+    this.widget.controller.text = this.widget.controller.text;
   }
 
   ///_insertText function it is the bridge between
   ///main textfield and keyboard textfield
   void _insertText(String myText) {
-    final text = this._controller.text != null
-        ? this._controller.text
+    final text = this.widget.controller.text != null
+        ? this.widget.controller.text
         : this.widget.text;
-    final textSelection = this._controller.selection;
+    final textSelection = this.widget.controller.selection;
     final newText = text.replaceRange(
       textSelection.start,
       textSelection.end,
       myText,
     );
     final myTextLength = myText.length;
-    this._controller.text = newText;
-    this._controller.selection = textSelection.copyWith(
+    this.widget.controller.text = newText;
+    this.widget.controller.selection = textSelection.copyWith(
       baseOffset: textSelection.start + myTextLength,
       extentOffset: textSelection.start + myTextLength,
     );
   }
 
   void _backspace() {
-    final text = this._controller.text;
-    final textSelection = this._controller.selection;
+    final text = this.widget.controller.text;
+    final textSelection = this.widget.controller.selection;
     final selectionLength = textSelection.end - textSelection.start;
 
     // There is a selection.
@@ -166,8 +173,8 @@ class _KurdishKeyboardState extends State<KurdishKeyboard> {
         textSelection.end,
         '',
       );
-      this._controller.text = newText;
-      this._controller.selection = textSelection.copyWith(
+      this.widget.controller.text = newText;
+      this.widget.controller.selection = textSelection.copyWith(
         baseOffset: textSelection.start,
         extentOffset: textSelection.start,
       );
@@ -189,8 +196,8 @@ class _KurdishKeyboardState extends State<KurdishKeyboard> {
       newEnd,
       '',
     );
-    this._controller.text = newText;
-    this._controller.selection = textSelection.copyWith(
+    this.widget.controller.text = newText;
+    this.widget.controller.selection = textSelection.copyWith(
       baseOffset: newStart,
       extentOffset: newStart,
     );
@@ -206,12 +213,14 @@ class _KurdishKeyboardState extends State<KurdishKeyboard> {
 
   @override
   Widget build(BuildContext context) {
-    if (this._controller != null) {
-      this._controller.selection = TextSelection.fromPosition(
-          TextPosition(offset: this._controller.text.length));
+    if (this.widget.controller != null) {
+      this.widget.controller.selection = TextSelection.fromPosition(
+          TextPosition(offset: this.widget.controller.text.length));
     }
+    this.widget.controller.text = this.widget.text;
     return TextField(
-      controller: this._controller != null ? this._controller : null,
+      controller:
+          this.widget.controller != null ? this.widget.controller : null,
       textDirection: this.widget.textDirection != null
           ? this.widget.textDirection
           : TextDirection.rtl,

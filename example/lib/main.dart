@@ -17,6 +17,13 @@ class _MyAppState extends State<MyApp> {
   TextEditingController t1 = TextEditingController();
   TextEditingController t2 = TextEditingController();
   String s = "";
+
+  @override
+  void initState() {
+    super.initState();
+    s = t1.text + "\n" + t2.text;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,10 +48,11 @@ class _MyAppState extends State<MyApp> {
               ),
               Divider(),
               KurdishKeyboard(
+                controller: t1,
+                text: "ئەز چيا و تو چيا گولك ما بێ گيا",
                 backgroundColor: Colors.lightBlueAccent,
                 keyColors: Colors.blue,
                 keyTextColor: Colors.grey,
-                textController: t1,
                 showCursor: true,
                 textStyle: TextStyle(color: Colors.blueAccent),
                 decoration: InputDecoration(
@@ -56,7 +64,8 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
               KurdishKeyboard(
-                textController: t2,
+                controller: t2,
+                text: "نە يا ديارە",
                 decoration: InputDecoration(
                   labelText: "ناڤدار",
                   hintStyle: TextStyle(
@@ -69,6 +78,8 @@ class _MyAppState extends State<MyApp> {
                 child: RaisedButton(
                   onPressed: () {
                     setState(() {
+                      // print(t1.text);
+                      // print(t2.text);
                       s = "${t1.text} \n ${t2.text}";
                     });
                   },
