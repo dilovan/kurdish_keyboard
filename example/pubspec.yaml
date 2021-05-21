@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   kurdish_keyboard:
-    path: package/kurdish_keyboard #../kurdish_keyboard #packages/kurdish_keyboard
+    path: ../ #../kurdish_keyboard #packages/kurdish_keyboard
 
 
   # The following adds the Cupertino Icons font to your application.
