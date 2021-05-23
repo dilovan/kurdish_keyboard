@@ -44,7 +44,7 @@ Simple example
 ```dart
 
 KurdishKeyboard(
-    textController: tec,
+    controller: tec,
 ),
 
 ```
