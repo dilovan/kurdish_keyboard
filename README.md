@@ -56,7 +56,7 @@ KurdishKeyboard(
     backgroundColor: Colors.lightBlueAccent,
     keyColors: Colors.blue,
     keyTextColor: Colors.grey,
-    textController: tec,
+    controller: tec,
     showCursor: true,
     textStyle: TextStyle(color: Colors.blueAccent),
     decoration: InputDecoration(
